@@ -1,21 +1,35 @@
-.arrow-down {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 20px solid #000; /* Adjust color as needed */
-    position: relative;
-    margin-left: -10px; /* Adjust to center arrow */
+/* Base Styles */
+.how-it-works-container {
+  font-family: 'Inter', sans-serif;
 }
 
-/* Optional: Add curvy line effect using pseudo-elements */
-.arrow-down::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: -30px; /* Adjust to position arrow correctly */
-    width: 2px;
-    height: 30px;
-    background: #000; /* Adjust color as needed */
-    transform: translateX(-50%);
+/* Card Hover Effect */
+.how-it-works-card {
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.how-it-works-card:hover {
+  transform: translateY(-5px) rotateX(2deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .how-it-works-card {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Button Hover Effect */
+.cta-button:hover {
+  background-position: right center;
+  background-size: 200% auto;
 }
