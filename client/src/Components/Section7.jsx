@@ -17,11 +17,11 @@ const AboutItem = ({ title, isOpen, onClick, content }) => {
     return (
         <div className="mb-4">
             <div
-                className={`bg-[#127c71] text-white flex items-center justify-between p-4 rounded-full cursor-pointer ${isOpen ? 'shadow-lg' : ''}`}
+                className={`bg-gradient-to-r from-[#B266FF] to-[#6CA8FF] text-white flex items-center justify-between p-4 rounded-full cursor-pointer border-2 border-[#B266FF] ${isOpen ? 'shadow-lg' : ''}`}
                 onClick={onClick}
             >
-                <h3 className="font-semibold text-base md:text-lg lg:text-xl">{title}</h3>
-                <div className="w-8 h-8 bg-white text-[#127c71] rounded-full flex items-center justify-center text-lg md:text-xl">
+                <h3 className="font-semibold text-base md:text-lg lg:text-xl text-white">{title}</h3>
+                <div className="w-8 h-8 bg-[#101628] text-[#B266FF] rounded-full flex items-center justify-center text-lg md:text-xl border border-[#6CA8FF]">
                     {isOpen ? '-' : '+'}
                 </div>
             </div>
@@ -30,7 +30,7 @@ const AboutItem = ({ title, isOpen, onClick, content }) => {
                 style={{ maxHeight: contentHeight }}
             >
                 <div
-                    className="bg-white text-[#127c71] p-4 rounded-3xl shadow-inner"
+                    className="bg-[#0C0F1D] text-[#E2E8F0] p-4 rounded-3xl shadow-inner border border-[#6CA8FF]"
                     ref={contentRef}
                 >
                     {content}
@@ -64,14 +64,18 @@ const About = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto rounded-2xl p-8 bg-gradient-to-br from-gray-50 to-teal-50  " data-aos="fade-up" >
-         <h2 className="text-3xl md:text-5xl font-bold leading-tight flex flex-col space-y-4 mb-20 text-center">
-            <span className="relative text-primary font-bold bg-transparent">
-                <span className='text-[#127c71]'>FAQ's</span>
-                <img src={underline} className='absolute top-14 transform translate-y-0 left-28 rotate-3 w-24 md:w-36 h-auto' alt="underline" />
-            </span>
-
-        </h2>
+        <div className="max-w-md mx-auto rounded-2xl p-8 bg-gradient-to-b from-[#0A0F2C] to-[#101628] relative overflow-hidden" data-aos="fade-up" >
+            {/* Neon Glow Overlays */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+                <div className="absolute top-10 left-1/4 w-60 h-60 bg-[#B266FF] rounded-full blur-[100px] opacity-30"></div>
+                <div className="absolute bottom-0 right-1/4 w-60 h-60 bg-[#6CA8FF] rounded-full blur-[100px] opacity-30"></div>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight flex flex-col space-y-4 mb-20 text-center z-10">
+                <span className="relative font-bold bg-transparent">
+                    <span className='bg-clip-text text-transparent bg-gradient-to-r from-[#B266FF] to-[#6CA8FF]'>FAQ's</span>
+                    <img src={underline} className='absolute top-14 transform translate-y-0 left-28 rotate-3 w-24 md:w-36 h-auto' alt="underline" />
+                </span>
+            </h2>
             {items.map((item, index) => (
                 <AboutItem
                     key={index}
@@ -101,15 +105,17 @@ const ContentSection = () => (
 
 const AboutLayout = () => (
 
-    <div className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-teal-50 ">
-
-        <div className="flex  flex-col lg:flex-row items-center lg:items-start justify-between max-w-6xl mx-auto  px-4  mb-0  mt-32 md:mb-0 lg:mb-24 ">
-            <div className='mt-8 lg:mt-12 lg:ml-8 w-5/6 flex-grow lg:w-full order-2 lg:order-1 ' >
+    <div className="relative overflow-hidden bg-gradient-to-b from-[#0A0F2C] to-[#101628] ">
+        {/* Neon Glow Overlays */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+            <div className="absolute top-10 left-1/4 w-96 h-96 bg-[#B266FF] rounded-full blur-[120px] opacity-30"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#6CA8FF] rounded-full blur-[120px] opacity-30"></div>
+        </div>
+        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between max-w-6xl mx-auto px-4 mb-0 mt-32 md:mb-0 lg:mb-24 relative z-10">
+            <div className='mt-8 lg:mt-12 lg:ml-8 w-5/6 flex-grow lg:w-full order-2 lg:order-1'>
                 <About />
-
             </div>
-
-            <div className=" lg:mt-0 lg:ml-8 flex-grow order-1 lg:order-2 w-5/6 m-auto lg:w-full">
+            <div className="lg:mt-0 lg:ml-8 flex-grow order-1 lg:order-2 w-5/6 m-auto lg:w-full">
                 <ContentSection />
             </div>
         </div>

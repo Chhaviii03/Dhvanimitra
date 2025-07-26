@@ -118,17 +118,22 @@ const Testimonials = () => {
   return (
     <motion.section
       id="testimonials"
-      className="py-12 md:py-16 bg-gradient-to-br from-gray-50 to-teal-50 overflow-hidden"
+      className="py-12 md:py-16 bg-gradient-to-b from-[#0A0F2C] to-[#101628] overflow-hidden relative"
     >
-      <div className="container mx-auto px-4">
+      {/* Neon Glow Overlays */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-[#B266FF] rounded-full blur-[120px] opacity-30"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#6CA8FF] rounded-full blur-[120px] opacity-30"></div>
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
         <motion.h2
-          className="text-3xl md:text-4xl font-extrabold text-center mb-8 tracking-tight"
+          className="text-3xl md:text-4xl font-extrabold text-center mb-8 tracking-tight bg-gradient-to-r from-[#B266FF] to-[#6CA8FF] bg-clip-text text-transparent"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="relative text-gray-800">
-            What Our <span className="text-[#127C71] font-extrabold">Mentees Say</span>
+          <span className="relative">
+            What Our <span className="text-[#B266FF] font-extrabold">Mentees Say</span>
             <svg
               className="absolute -top-3 -right-8 w-6 md:w-8 h-auto"
               viewBox="0 0 3183 3072"

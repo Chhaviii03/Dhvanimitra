@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Hero from "../Components/homeHero";
 import SectionWhy from "../Components/SectionWhy";
 import Section2 from "../Components/Section2";
-import Section3 from "../Components/Section3";
 import Section4 from "../Components/Section4";
 import Section5 from "../Components/Section5";
 import Section6 from "../Components/Section6";
@@ -13,7 +12,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import ChatBot from "../pages/ChatBot"; 
 import MenteeB from "../Components/MenteeB";
 import HeroStart from '../Components/HeroStart'
-import ScrollingFeatureStrap from '../Components/ScrollingFeatureStrap'
 
 const Home = () => {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
@@ -23,9 +21,6 @@ const Home = () => {
     <div className=" bg-gradient-to-br from-gray-50 to-teal-50 ">
     {/* <HeroStart/> */}
       {/* Hero Section with AOS */}
-      <div data-aos="fade-up" >
-        <ScrollingFeatureStrap />
-      </div>
 
       <div data-aos="fade-up" data-aos-delay="100">
         <Hero />
@@ -39,11 +34,6 @@ const Home = () => {
       {/* Section2 with AOS */}
       <div data-aos="fade-up" data-aos-delay="200">
         <Section2 />
-      </div>
-
-      {/* Section3 with AOS */}
-      <div data-aos="fade-up" data-aos-delay="300">
-        <Section3 />
       </div>
 
       {/* Section4 with AOS */}

@@ -182,7 +182,8 @@ import { toast } from "react-toastify";
 import { FaPaperPlane, FaTimes, FaImage, FaSpinner } from "react-icons/fa";
 import { FiUpload } from "react-icons/fi";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import 'quill/dist/quill.snow.css';
+
 
 const MentorBlogCreate = ({ onBlogCreated, onCancel }) => {
   const { authorizationToken } = useAuth();

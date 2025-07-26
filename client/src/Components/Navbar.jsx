@@ -7,15 +7,15 @@ import { toast } from "react-toastify";
 
 // Custom color palette
 const colors = {
-  primary: '#4F46E5',       // Indigo-600
-  primaryHover: '#4338CA',   // Indigo-700
-  secondary: '#10B981',      // Emerald-500
-  secondaryHover: '#059669', // Emerald-600
-  light: '#F9FAFB',          // Gray-50
-  dark: '#111827',           // Gray-900
-  muted: '#6B7280',          // Gray-500
-  danger: '#EF4444',         // Red-500
-  dangerHover: '#DC2626'     // Red-600
+  primary: '#B266FF',       // Lavender Purple
+  primaryHover: '#6CA8FF',   // Sky Blue
+  secondary: '#00FFBB',      // Aqua Green
+  secondaryHover: '#009BFF', // Bright Blue
+  light: '#E2E8F0',          // Muted White
+  dark: '#0A0F2C',           // Deep Navy
+  muted: '#D2D6DC',          // Light Gray
+  danger: '#A94EFF',         // Neon Purple
+  dangerHover: '#9147FF'     // Neon Purple Hover
 };
 
 // Animation variants
@@ -141,7 +141,7 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        className="bg-white/95 backdrop-blur-sm fixed top-0 left-0 w-full z-50 border-b border-gray-200 shadow-sm"
+        className="bg-gradient-to-b from-[#0A0F2C] to-[#101628] backdrop-blur-sm fixed top-0 left-0 w-full z-50 border-b border-[#B266FF] shadow-lg"
         style={{ height: navbarHeight }}
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -156,10 +156,10 @@ const Navbar = () => {
             transition={{ duration: 0.6 }}
           >
             <Link to="/" className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-indigo-500 to-indigo-600 flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-[#B266FF] to-[#6CA8FF] flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
                 <span className="text-white font-bold text-lg">MC</span>
               </div>
-              <span className="text-2xl font-bold text-gray-800 group-hover:text-indigo-600 transition-colors duration-300">
+              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#B266FF] to-[#6CA8FF] group-hover:from-[#6CA8FF] group-hover:to-[#B266FF] transition-colors duration-300">
                 MentorConnect
               </span>
             </Link>
@@ -167,11 +167,7 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-8">
-            {[
-              { to: '/', text: 'Home' },
-              { to: '/about', text: 'About' },
-              { to: '/contact', text: 'Contact' },
-            ].map((link, index) => (
+            {[{ to: '/', text: 'Home' }, { to: '/about', text: 'About' }, { to: '/contact', text: 'Contact' }].map((link, index) => (
               <motion.div
                 key={index}
                 variants={navItemVariants}
@@ -180,10 +176,10 @@ const Navbar = () => {
               >
                 <Link
                   to={link.to}
-                  className="relative px-3 py-2 text-gray-600 hover:text-indigo-600 transition-colors duration-300 group"
+                  className="relative px-3 py-2 text-[#E2E8F0] hover:text-[#B266FF] transition-colors duration-300 group"
                 >
                   {link.text}
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#B266FF] to-[#6CA8FF] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 </Link>
               </motion.div>
             ))}
@@ -195,26 +191,26 @@ const Navbar = () => {
               <div className="relative dropdown-container">
                 <motion.button
                   onClick={toggleDropdown}
-                  className="flex items-center space-x-2 px-4 py-2 rounded-full bg-gray-50 hover:bg-gray-100 transition-colors duration-300 border border-gray-200"
-                  whileHover={{ scale: 1.02, backgroundColor: colors.light }}
+                  className="flex items-center space-x-2 px-4 py-2 rounded-full bg-[#0C0F1D] hover:bg-[#101628] transition-colors duration-300 border border-[#B266FF]"
+                  whileHover={{ scale: 1.02, backgroundColor: colors.dark }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-400 to-indigo-600 flex items-center justify-center text-white font-medium">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#B266FF] to-[#6CA8FF] flex items-center justify-center text-white font-medium">
                     {user?.fullName?.charAt(0) || 'U'}
                   </div>
-                  <span className="text-gray-700 font-medium">{user?.fullName || 'User'}</span>
+                  <span className="text-[#E2E8F0] font-medium">{user?.fullName || 'User'}</span>
                   <motion.div
                     animate={{ rotate: isDropdownOpen ? 180 : 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <FaChevronDown className="text-gray-500 text-sm" />
+                    <FaChevronDown className="text-[#B266FF] text-sm" />
                   </motion.div>
                 </motion.button>
 
                 <AnimatePresence>
                   {isDropdownOpen && (
                     <motion.div
-                      className="absolute right-0 mt-2 w-56 bg-white shadow-lg rounded-xl border border-gray-200 overflow-hidden z-50"
+                      className="absolute right-0 mt-2 w-56 bg-[#0C0F1D] shadow-lg rounded-xl border border-[#B266FF] overflow-hidden z-50"
                       variants={dropdownVariants}
                       initial="hidden"
                       animate="visible"
@@ -223,30 +219,30 @@ const Navbar = () => {
                       <motion.div variants={dropdownItemVariants}>
                         <Link
                           to={profileLink}
-                          className="flex items-center px-4 py-3 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors duration-200"
+                          className="flex items-center px-4 py-3 text-[#E2E8F0] hover:bg-[#B266FF] hover:text-white transition-colors duration-200"
                           onClick={() => setIsDropdownOpen(false)}
                         >
-                          <FaUserCircle className="mr-3 text-indigo-500" /> 
+                          <FaUserCircle className="mr-3 text-[#6CA8FF]" />
                           <span>Profile</span>
                         </Link>
                       </motion.div>
                       <motion.div variants={dropdownItemVariants}>
                         <Link
                           to={dashboardLink}
-                          className="flex items-center px-4 py-3 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors duration-200"
+                          className="flex items-center px-4 py-3 text-[#E2E8F0] hover:bg-[#B266FF] hover:text-white transition-colors duration-200"
                           onClick={() => setIsDropdownOpen(false)}
                         >
-                          <FaTachometerAlt className="mr-3 text-indigo-500" /> 
+                          <FaTachometerAlt className="mr-3 text-[#6CA8FF]" />
                           <span>Dashboard</span>
                         </Link>
                       </motion.div>
-                      <div className="border-t border-gray-200"></div>
+                      <div className="border-t border-[#B266FF]"></div>
                       <motion.div variants={dropdownItemVariants}>
                         <button
                           onClick={handleLogout}
-                          className="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors duration-200"
+                          className="flex items-center w-full px-4 py-3 text-[#E2E8F0] hover:bg-[#A94EFF] hover:text-white transition-colors duration-200"
                         >
-                          <FaSignOutAlt className="mr-3 text-red-400" /> 
+                          <FaSignOutAlt className="mr-3 text-[#A94EFF]" />
                           <span>Logout</span>
                         </button>
                       </motion.div>
@@ -264,7 +260,7 @@ const Navbar = () => {
                 >
                   <Link
                     to="/mentee-login"
-                    className="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-medium py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center"
+                    className="bg-gradient-to-r from-[#B266FF] to-[#6CA8FF] text-white font-medium py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center"
                   >
                     <span>Join as Mentee</span>
                   </Link>
@@ -276,7 +272,7 @@ const Navbar = () => {
                 >
                   <Link
                     to="/mentor-login"
-                    className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-medium py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center"
+                    className="bg-gradient-to-r from-[#00FFBB] to-[#009BFF] text-white font-medium py-2 px-6 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center"
                   >
                     <span>Become a Mentor</span>
                   </Link>
@@ -289,14 +285,14 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <motion.button
               onClick={toggleMenu}
-              className="p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200"
-              whileHover={{ scale: 1.1, backgroundColor: colors.light }}
+              className="p-2 rounded-lg bg-[#0C0F1D] hover:bg-[#101628] transition-colors border border-[#B266FF]"
+              whileHover={{ scale: 1.1, backgroundColor: colors.dark }}
               whileTap={{ scale: 0.9 }}
             >
               {isOpen ? (
-                <FaTimes className="w-5 h-5 text-gray-700" />
+                <FaTimes className="w-5 h-5 text-[#B266FF]" />
               ) : (
-                <FaBars className="w-5 h-5 text-gray-700" />
+                <FaBars className="w-5 h-5 text-[#B266FF]" />
               )}
             </motion.button>
           </div>
@@ -306,22 +302,18 @@ const Navbar = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="md:hidden bg-white shadow-lg px-6 py-4 border-t border-gray-200 overflow-hidden"
+              className="md:hidden bg-gradient-to-b from-[#0A0F2C] to-[#101628] shadow-lg px-6 py-4 border-t border-[#B266FF] overflow-hidden"
               variants={mobileMenuVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
             >
               <div className="flex flex-col space-y-1">
-                {[
-                  { to: '/', text: 'Home' },
-                  { to: '/about', text: 'About' },
-                  { to: '/contact', text: 'Contact' },
-                ].map((link, index) => (
+                {[{ to: '/', text: 'Home' }, { to: '/about', text: 'About' }, { to: '/contact', text: 'Contact' }].map((link, index) => (
                   <motion.div key={index} variants={mobileItemVariants}>
                     <Link
                       to={link.to}
-                      className="block px-4 py-3 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors duration-200"
+                      className="block px-4 py-3 text-[#E2E8F0] hover:bg-[#B266FF] hover:text-white rounded-lg transition-colors duration-200"
                       onClick={toggleMenu}
                     >
                       {link.text}
@@ -329,14 +321,13 @@ const Navbar = () => {
                   </motion.div>
                 ))}
               </div>
-              
-              <div className="mt-4 pt-4 border-t border-gray-200">
+              <div className="mt-4 pt-4 border-t border-[#B266FF]">
                 {isLoggedIn ? (
                   <>
                     <motion.div variants={mobileItemVariants} className="mb-2">
                       <Link
                         to={profileLink}
-                        className="block px-4 py-3 bg-indigo-50 text-indigo-600 font-medium rounded-lg hover:bg-indigo-100 transition-colors duration-200 text-center"
+                        className="block px-4 py-3 bg-[#B266FF] text-white font-medium rounded-lg hover:bg-[#6CA8FF] transition-colors duration-200 text-center"
                         onClick={toggleMenu}
                       >
                         Profile
@@ -345,7 +336,7 @@ const Navbar = () => {
                     <motion.div variants={mobileItemVariants} className="mb-2">
                       <Link
                         to={dashboardLink}
-                        className="block px-4 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-medium rounded-lg hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 text-center"
+                        className="block px-4 py-3 bg-gradient-to-r from-[#B266FF] to-[#6CA8FF] text-white font-medium rounded-lg hover:from-[#6CA8FF] hover:to-[#B266FF] transition-all duration-200 text-center"
                         onClick={toggleMenu}
                       >
                         Dashboard
@@ -354,7 +345,7 @@ const Navbar = () => {
                     <motion.div variants={mobileItemVariants}>
                       <button
                         onClick={handleLogout}
-                        className="w-full px-4 py-3 bg-red-50 text-red-600 font-medium rounded-lg hover:bg-red-100 transition-colors duration-200"
+                        className="w-full px-4 py-3 bg-[#A94EFF] text-white font-medium rounded-lg hover:bg-[#9147FF] transition-colors duration-200"
                       >
                         Logout
                       </button>
@@ -365,7 +356,7 @@ const Navbar = () => {
                     <motion.div variants={mobileItemVariants} className="mb-2">
                       <Link
                         to="/mentee-login"
-                        className="block px-4 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-medium rounded-lg hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 text-center"
+                        className="block px-4 py-3 bg-gradient-to-r from-[#B266FF] to-[#6CA8FF] text-white font-medium rounded-lg hover:from-[#6CA8FF] hover:to-[#B266FF] transition-all duration-200 text-center"
                         onClick={toggleMenu}
                       >
                         Join as Mentee
@@ -374,7 +365,7 @@ const Navbar = () => {
                     <motion.div variants={mobileItemVariants}>
                       <Link
                         to="/mentor-login"
-                        className="block px-4 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-medium rounded-lg hover:from-emerald-600 hover:to-emerald-700 transition-all duration-200 text-center"
+                        className="block px-4 py-3 bg-gradient-to-r from-[#00FFBB] to-[#009BFF] text-white font-medium rounded-lg hover:from-[#009BFF] hover:to-[#00FFBB] transition-all duration-200 text-center"
                         onClick={toggleMenu}
                       >
                         Become a Mentor
@@ -387,7 +378,6 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </motion.nav>
-      
       {/* Spacer div to prevent content overlap */}
       <div style={{ height: navbarHeight }} />
     </>

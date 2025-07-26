@@ -23,8 +23,8 @@ const NextArrow = ({ onClick }) => (
     whileTap={{ scale: 0.95 }}
     onClick={onClick}
   >
-    <div className="w-12 h-12 bg-gradient-to-br from-[#E3F2FD] to-[#BBDEFB] rounded-full shadow-lg flex items-center justify-center border border-[#90CAF9]/30 hover:from-[#F0F4F8] hover:to-[#E1E8ED] hover:shadow-xl transition-all duration-300 backdrop-blur-sm">
-      <FaArrowRightLong className="text-[#1565C0] text-xl" />
+    <div className="w-12 h-12 bg-gradient-to-br from-[#B266FF] to-[#6CA8FF] rounded-full shadow-lg flex items-center justify-center border border-[#6CA8FF]/30 hover:from-[#B266FF] hover:to-[#6CA8FF] hover:shadow-xl transition-all duration-300 backdrop-blur-sm">
+      <FaArrowRightLong className="text-[#B266FF] text-xl" />
     </div>
   </motion.div>
 );
@@ -43,8 +43,8 @@ const PrevArrow = ({ onClick }) => (
     whileTap={{ scale: 0.95 }}
     onClick={onClick}
   >
-    <div className="w-12 h-12 bg-gradient-to-br from-[#E3F2FD] to-[#BBDEFB] rounded-full shadow-lg flex items-center justify-center border border-[#90CAF9]/30 hover:from-[#F0F4F8] hover:to-[#E1E8ED] hover:shadow-xl transition-all duration-300 backdrop-blur-sm">
-      <FaArrowLeftLong className="text-[#1565C0] text-xl" />
+    <div className="w-12 h-12 bg-gradient-to-br from-[#B266FF] to-[#6CA8FF] rounded-full shadow-lg flex items-center justify-center border border-[#6CA8FF]/30 hover:from-[#B266FF] hover:to-[#6CA8FF] hover:shadow-xl transition-all duration-300 backdrop-blur-sm">
+      <FaArrowLeftLong className="text-[#B266FF] text-xl" />
     </div>
   </motion.div>
 );
@@ -135,28 +135,13 @@ const MentorMenteeSpotlight = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-br from-[#F0F8FF] via-[#E3F2FD] to-[#BBDEFB]">
-      {/* Enhanced decorative elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        {[...Array(15)].map((_, i) => (
-          <div 
-            key={i}
-            className="absolute rounded-full bg-gradient-to-br from-[#1976D2]/30 to-[#5A8FA0]/30 blur-sm"
-            style={{
-              width: `${Math.random() * 120 + 60}px`,
-              height: `${Math.random() * 120 + 60}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animation: `float ${Math.random() * 15 + 12}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 8}s`
-            }}
-          />
-        ))}
+    <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-b from-[#0A0F2C] to-[#101628]">
+      {/* Neon Glow Overlays */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-[#B266FF] rounded-full blur-[120px] opacity-30"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#6CA8FF] rounded-full blur-[120px] opacity-30"></div>
+        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-[#00FFBB] rounded-full blur-[100px] opacity-20"></div>
       </div>
-
-      {/* Premium gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#FFFFFF]/10 to-[#81D4FA]/20 pointer-events-none"></div>
-
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="text-center mb-12"
@@ -165,14 +150,13 @@ const MentorMenteeSpotlight = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#1565C0] via-[#1976D2] to-[#5A8FA0] bg-clip-text text-transparent">
-            Meet Our <span className="bg-gradient-to-r from-[#5A8FA0] to-[#5A8FA0] bg-clip-text text-transparent">Expert Mentors</span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#B266FF] to-[#6CA8FF] bg-clip-text text-transparent">
+            Meet Our <span className="bg-gradient-to-r from-[#00FFBB] to-[#009BFF] bg-clip-text text-transparent">Expert Mentors</span>
           </h2>
-          <p className="text-xl text-[#1565C0] max-w-3xl mx-auto opacity-90 font-light">
+          <p className="text-xl text-[#E2E8F0] max-w-3xl mx-auto opacity-90 font-light">
             Discover exceptional guidance from our curated collection of industry leaders
           </p>
         </motion.div>
-
         <motion.div
           className="mb-12 custom-slider"
           initial={{ opacity: 0 }}
@@ -191,10 +175,12 @@ const MentorMenteeSpotlight = () => {
                 viewport={{ once: true }}
                 className="px-3 py-2"
               >
-                <div className="relative bg-gradient-to-br from-white via-[#FAFAFA] to-[#F8F9FA] p-8 rounded-3xl border border-[#E1BEE7]/20 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden h-full backdrop-blur-sm group">
-                  {/* Premium glass effect overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-transparent to-[#E1BEE7]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
-                  
+                <div className="relative bg-[#0C0F1D] p-8 rounded-3xl border-2 border-[#B266FF] shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden h-full backdrop-blur-sm group">
+                  {/* Circular overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-32 h-32 rounded-full bg-white opacity-5"></div>
+                  </div>
+
                   {/* Enhanced favorite heart */}
                   <motion.button 
                     className="absolute top-6 right-6 z-20"
@@ -232,9 +218,9 @@ const MentorMenteeSpotlight = () => {
                       </motion.div>
                     </motion.div>
                     <div className="flex-1">
-                      <h4 className="text-xl font-bold text-[#2E2E2E] mb-1">{mentor.name}</h4>
-                      <p className="text-[#1565C0] text-sm font-medium">{mentor.title}</p>
-                      <p className="text-[#5A8FA0] text-xs font-semibold">@ {mentor.company}</p>
+                      <h4 className="text-xl font-bold text-[#E2E8F0] mb-1">{mentor.name}</h4>
+                      <p className="text-[#B266FF] text-sm font-medium">{mentor.title}</p>
+                      <p className="text-[#6CA8FF] text-xs font-semibold">@ {mentor.company}</p>
                       <div className="flex items-center mt-2">
                         <div className="flex">
                           {[...Array(5)].map((_, i) => (
@@ -244,7 +230,7 @@ const MentorMenteeSpotlight = () => {
                             />
                           ))}
                         </div>
-                        <span className="text-[#1565C0] text-xs ml-2 font-medium">{mentor.rating}</span>
+                        <span className="text-[#B266FF] text-xs ml-2 font-medium">{mentor.rating}</span>
                       </div>
                     </div>
                   </div>
@@ -254,17 +240,17 @@ const MentorMenteeSpotlight = () => {
                     <div className="flex justify-between bg-gradient-to-r from-[#E3F2FD] to-[#BBDEFB] rounded-2xl p-4 border border-[#90CAF9]/20">
                       <div className="text-center flex-1">
                         <p className="text-[#1976D2] text-xs font-semibold uppercase tracking-wide mb-1">Industry</p>
-                        <p className="text-[#2E2E2E] font-bold text-sm">{mentor.industry}</p>
+                        <p className="text-[#E2E8F0] font-bold text-sm">{mentor.industry}</p>
                       </div>
                       <div className="h-10 w-px bg-gradient-to-b from-[#90CAF9] to-transparent mx-4"></div>
                       <div className="text-center flex-1">
                         <p className="text-[#1976D2] text-xs font-semibold uppercase tracking-wide mb-1">Experience</p>
-                        <p className="text-[#2E2E2E] font-bold text-sm">{mentor.yearsOfExperience} years</p>
+                        <p className="text-[#E2E8F0] font-bold text-sm">{mentor.yearsOfExperience} years</p>
                       </div>
                     </div>
                     
                     <div>
-                      <p className="text-[#1565C0] text-sm font-semibold mb-3 flex items-center">
+                      <p className="text-[#B266FF] text-sm font-semibold mb-3 flex items-center">
                         <IoCode className="mr-2 text-[#5A8FA0]" />
                         Core Skills
                       </p>
@@ -349,3 +335,4 @@ const MentorMenteeSpotlight = () => {
 };
 
 export default MentorMenteeSpotlight;
+
